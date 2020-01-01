@@ -10,14 +10,20 @@
  * @return {number}
  */
 var singleNumber = function(nums) {
-	let arr = [];
-	for (let i in nums) {
-		for (let j in nums) {
-			if (nums[i] == nums[j]) {
-				arr.push();
-			}
-		}
-	}
+    let map = {};
+
+    map = nums.reduce((time, name) => {
+        if (name in time) {
+            time[name]++;
+        } else {
+            time[name] = 0;
+        }
+        return time;
+    }, {});
+
+    for (let i in map) {
+        if (map[i] == 0) return i;
+    }
 };
-singleNumber([4, 1, 2, 1, 2]);
+
 // @lc code=end

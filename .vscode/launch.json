@@ -7,9 +7,11 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "Launch Program",
-			"skipFiles": ["<node_internals>/**"],
-			"program": "${workspaceFolder}\\1.two-sum.js"
+			"name": "Debugger",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"program": "${file}"
 		}
 	]
 }
