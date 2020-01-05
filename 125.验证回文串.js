@@ -5,42 +5,31 @@
  */
 
 // @lc code=start
-class Stack {
-	dataStore;
-	top;
 
-	constructor() {
-		this.dataStore = [];
-		this.top = 0;
-	}
-
-	_push(ele) {
-		this.dataStore[this.top++] = ele;
-	}
-	_pop = () => this.dataStore[--this.top];
-	_peek = () => this.dataStore[this.top - 1];
-	_length = () => this.top;
-	_clear = () => {
-		this.top = 0;
-	};
-}
 /**
- * @param {string} s
+ * @param {string} word
  * @return {boolean}
  */
 var isPalindrome = function(word) {
-	let s = new Stack();
-	for (let i = 0; i < word.length; i++) {
-		s._push(word[i]); // s.dataStore=word.splice("")
-	}
-	let rword = '';
-	while (s._length() > 0) {
-		rword += s._pop();
-	}
-	if (word == rword) {
-		return true;
-	} else {
-		return false;
-	}
+    let queue = [];
+    let patter = /\w+/gi;
+    word = word.toLowerCase().match(patter);
+    for (let i in word) {
+        queue.push(...word[i].split(''));
+    }
+    while (queue.length >= 0) {
+        if (queue.length == 1) return true;
+        if (queue.shift() === queue.pop()) {
+            // 头尾相等继续循环, 直到队列就剩一个字母
+            continue;
+        } else {
+            // 头尾不等
+            return false;
+        }
+    }
 };
+console.log(isPalindrome('A man, a plan, a canal: Panama'));
+console.log(isPalindrome('race a car'));
+console.log(isPalindrome(''));
+// isPalindrome();
 // @lc code=end

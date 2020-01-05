@@ -10,9 +10,9 @@
  * @return {string}
  */
 var defangIPaddr = function(address) {
-	return address
-		.split('.')
-		.join('[.]')
-		.toString();
+    return address
+        .split('.')
+        .join('[.]')
+        .toString();
 };
 // @lc code=end

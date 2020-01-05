@@ -13,6 +13,17 @@
         "sourceType": "module"
     },
     "rules": {
-        "semi-spacing": "off"
+        "semi-spacing": [
+            0,
+            {
+                "before": true,
+                "after": false
+            }
+        ],
+        "no-unused-vars": "warn",
+        "semi": [
+            2,
+            "always"
+        ]
     }
 }

@@ -26,6 +26,7 @@ var merge = function(nums1, m, nums2, n) {
         }
         maxLen--;
     }
+    console.log(nums1);
 };
 
 merge([1], 1, [], 0); // [1]
