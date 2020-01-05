@@ -7,26 +7,24 @@
 // @lc code=start
 
 /**
- * @param {string} word
+ * @param {string} s
  * @return {boolean}
  */
-var isPalindrome = function(word) {
-    let queue = [];
-    let patter = /\w+/gi;
-    word = word.toLowerCase().match(patter);
-    for (let i in word) {
-        queue.push(...word[i].split(''));
-    }
-    while (queue.length >= 0) {
-        if (queue.length == 1) return true;
-        if (queue.shift() === queue.pop()) {
-            // 头尾相等继续循环, 直到队列就剩一个字母
-            continue;
-        } else {
-            // 头尾不等
+var isPalindrome = function(s) {
+    s = s.toLowerCase().replace(/[\W_]/g, ''); // 字符串去除多余符号
+    if (s.length < 2) {
+        return true;
+    } // 单个字符
+    let left = 0;
+    let right = s.length - 1;
+    while (left < right) {
+        if (s[left] !== s[right]) {
             return false;
         }
+        left++;
+        right--;
     }
+    return true;
 };
 console.log(isPalindrome('A man, a plan, a canal: Panama'));
 console.log(isPalindrome('race a car'));
