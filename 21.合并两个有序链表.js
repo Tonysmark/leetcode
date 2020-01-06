@@ -19,11 +19,9 @@ function ListNode(val) {
 /**
  * @param {ListNode} linkedNode
  */
-
 function showlinkedNode(linkedNode) {
     let tmpStr = '';
     while (linkedNode) {
-        console.log('linkedNode :', linkedNode);
         tmpStr += `${linkedNode.val} -> `;
         linkedNode = linkedNode.next;
     }
@@ -38,21 +36,8 @@ var mergeTwoLists = function(l1, l2) {
     // 已经排序的链表， 最小 listNode 是合并边界
     // 但由于是列表，所以不能用 length 方法
     let list = new ListNode();
-
     while (l1.next || l2.next) {
-        if (l1.val <= l2.val) {
-            showlinkedNode(l1);
-            list.val = l1.val;
-            list.next = l1.next;
-            l1 = l1.next;
-        } else {
-            showlinkedNode(l2);
-            list.val = l2.val;
-            list.next = l2.next;
-            l2 = l2.next;
-        }
-        console.log('list: ', showlinkedNode(list));
-        list.next;
+        // 大于 等于 小于
     }
 };
 let l1 = {
