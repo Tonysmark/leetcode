@@ -12,54 +12,50 @@
  *     this.next = null;
  * }
  */
-function ListNode(val) {
-    this.val = val;
-    this.next = null;
-}
-/**
- * @param {ListNode} linkedNode
- */
-function showlinkedNode(linkedNode) {
-    let tmpStr = '';
-    while (linkedNode) {
-        tmpStr += `${linkedNode.val} -> `;
-        linkedNode = linkedNode.next;
-    }
-    console.log(tmpStr);
-}
 /**
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var mergeTwoLists = function(l1, l2) {
-    // 已经排序的链表， 最小 listNode 是合并边界
-    // 但由于是列表，所以不能用 length 方法
-    let list = new ListNode();
-    while (l1.next || l2.next) {
-        // 大于 等于 小于
+var mergeTwoLists = function(l1, l2) {};
+// 下面不是函数主体
+
+class ListNode {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
     }
-};
-let l1 = {
-    val: 1,
-    next: {
-        val: 2,
-        next: {
-            val: 4,
-            next: null
+}
+class LinkList {
+    constructor() {
+        this.head = new ListNode('head');
+    }
+    find(element) {
+        let current = this.head;
+        while (current.val != element) {
+            current = current.next;
+        }
+        return current;
+    }
+
+    insert(newElement, item) {
+        let node = new ListNode(newElement);
+        let current = this.find(item);
+        node.next = current.next;
+        current.next = node;
+    }
+
+    display() {
+        let current = this.head;
+        while (current.next !== null) {
+            console.log(current.next.element);
+            current = current.next;
         }
     }
-};
-let l2 = {
-    val: 1,
-    next: {
-        val: 3,
-        next: {
-            val: 4,
-            next: null
-        }
-    }
-};
-mergeTwoLists(l1, l2);
-// mergeTwoLists(l1, l2);
+}
+
+let list = new LinkList();
+list.insert('Conway', 'head');
+list.insert('Alma', 'Conway');
+list.display();
 // @lc code=end
